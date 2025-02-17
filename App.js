@@ -1,20 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
+import Weather1 from './components/Weather1';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <>
+    <View style={styles.container} >
+    <Header/>
+    <ScrollView contentContainerStyle={styles.content}>
+   <Weather1/>
+    </ScrollView>
+    
+    <Footer/>
     </View>
+    </>
   );
+
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+      flex: 1,
+      backgroundColor: '#f5f5f5',
+    },
+    content: {
+      flexGrow: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
 });
+
+
