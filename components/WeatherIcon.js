@@ -1,15 +1,18 @@
 // WeatherIcon.js
 import React from 'react';
-import { Sun, CloudRain, Cloud, CloudSnow, CloudLightning, CloudFog } from 'lucide-react';
+import { Sun, CloudRain, Cloudy, CloudSnow, CloudSun, CloudLightning, CloudFog } from 'lucide-react-native';
 import { View, Text, StyleSheet } from 'react-native';
 
 const WeatherIcon = ({ description }) => {
   const getIcon = () => {
     switch (description.toLowerCase()) {
       case 'soleado':
+      case 'mayormente soleado':
+      case 'mostly sunny':
       case 'despejado':
-      case 'clear':
-        return <Sun color="#f5d142" size={64} />;
+      case 'sunny':
+      case 'clear': 
+        return <CloudSun color="#f5d142" size={64} />;
       case 'lluvia':
       case 'lloviendo':
       case 'chubascos':
@@ -18,8 +21,8 @@ const WeatherIcon = ({ description }) => {
       case 'nublado':
       case 'parcialmente nublado':
       case 'cloudy':
-      case 'overcast':
-        return <Cloud color="#95a5a6" size={64} />;
+      case 'partly cloudy':
+        return <Cloudy color="#a2a2a2" size={64} />;
       case 'nieve':
       case 'nevando':
       case 'snow':

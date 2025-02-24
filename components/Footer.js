@@ -1,18 +1,38 @@
 // Footer.js
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Github, Twitter, Mail } from 'lucide-react';
+import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
+import { Github, Twitter, Mail } from 'lucide-react-native';
 
 const Footer = () => {
   return (
     <View style={styles.footer}>
       <Text style={styles.footerText}>© 2025 Weather App</Text>
+      
+      {/* Redes sociales */}
       <View style={styles.socialContainer}>
-        <Github color="#333" size={24} />
-        <Twitter color="#1DA1F2" size={24} style={styles.icon} />
-        <Mail color="#FF4500" size={24} style={styles.icon} />
+        <TouchableOpacity onPress={() => Linking.openURL('https://github.com')} accessibilityLabel="GitHub">
+          <Github color="#333" size={24} />
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => Linking.openURL('https://twitter.com')} accessibilityLabel="Twitter" style={styles.icon}>
+          <Twitter color="#1DA1F2" size={24} />
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => Linking.openURL('mailto:support@weatherapp.com')} accessibilityLabel="Email" style={styles.icon}>
+          <Mail color="#FF4500" size={24} />
+        </TouchableOpacity>
       </View>
-      <Text style={styles.footerLink}>Privacy Policy | Terms of Service</Text>
+
+      {/* Enlaces */}
+      <View style={styles.linkContainer}>
+        <TouchableOpacity onPress={() => Linking.openURL('https://weatherapp.com/privacy')}>
+          <Text style={styles.footerLink}>Privacy Policy</Text>
+        </TouchableOpacity>
+        <Text style={styles.footerSeparator}>|</Text>
+        <TouchableOpacity onPress={() => Linking.openURL('https://weatherapp.com/terms')}>
+          <Text style={styles.footerLink}>Terms of Service</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -25,6 +45,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#e6e6e6',
     alignItems: 'center',
+    marginTop: 20, // Separación con el contenido superior
   },
   footerText: {
     fontSize: 16,
@@ -37,11 +58,21 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   icon: {
-    marginHorizontal: 10,
+    marginHorizontal: 12,
+  },
+  linkContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   footerLink: {
     fontSize: 14,
     color: '#007bff',
+    textDecorationLine: 'underline',
+    marginHorizontal: 5,
+  },
+  footerSeparator: {
+    fontSize: 14,
+    color: '#666',
   },
 });
 
