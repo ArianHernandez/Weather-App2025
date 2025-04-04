@@ -22,13 +22,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'rgb(0, 0, 0)',
   },
   content: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: "rgba(248, 245, 245, 0.95)",
     paddingBottom: 20, // Evita que el contenido toque el borde inferior
   },
 });
-
